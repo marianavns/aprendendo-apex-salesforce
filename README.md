@@ -28,6 +28,11 @@ Fique a vontade!
     - [Estrutura da Trigger](#Estrutura-da-Trigger)
 - 
 
+## Preparando a máquina
+
+- Baixe o VSCode
+- Baixe as extensões Salesforce no VSCode: Salesforce Extension Pack (Expanded) e SOQL Salesforce 
+
 ## Hello World!
 
 A primeira coisa que queremos fazer quando estamos aprendendo uma linguagem nova é o famoso "Hello, World", certo? Escrever umas linhas de código e ver a mensagem aparecendo no console.
