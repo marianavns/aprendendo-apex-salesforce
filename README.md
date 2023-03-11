@@ -166,3 +166,12 @@ trigger SayHelloWorld on Account (before insert) {
 }
 ```
 
+## Comandos para deploy e retrieve dos códigos
+
+Deploy ou retrieve de recurso (ApexClass, LightningBundle...)
+`sfdx force:source:deploy -m ApexClass:<nomeDoRecurso>`
+*para retrieve, troque "deploy" por "retrieve"
+
+Deploy de classe rodando seus testes unitários
+`sfdx force:source:deploy -m ApexClass:<nomeDaClasse> -l RunSpecifiedTests -r <nomeDaClasseTeste>`
+
