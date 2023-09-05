@@ -103,7 +103,7 @@ public with sharing class Maps {
             - Temos um problema de for dentro de outro for, que é bom evitar.
         */
     }
-    
+
 
     public static void filtrarRegistrosNoSalesforceSemSelectNoLoopAvancadoComMap (List<Account> listaDeContas) {
         
@@ -150,5 +150,13 @@ public with sharing class Maps {
             Observação:
             - É possível construir Map de vários tipos, inclusive compostos pelo ID de um objeto + Lista de outro objeto.
         */
-    } 
+    }
+
+    /*
+
+        #### DOCUMENTAÇÃO DA CLASSE MAPS: 
+            https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_methods_system_map.htm
+
+
+
 }
