@@ -128,6 +128,30 @@ public with sharing class Maps {
             List<Contact> contatosDeCadaConta = mapContaEContatos.get(keyAccountId);
             System.debug('A conta ' + contatosDeCadaConta[0].Account.Name + ' tem ' + contatosDeCadaConta.size() + ' contatos, que são: ' + contatosDeCadaConta);
         }
+
+        /*
+            Comando para executar no Developer Console:
+            List<Account> listaContas = [SELECT Id FROM Account];
+            MapsBOMVNS.filtrarRegistrosNoSalesforceSemSelectNoLoopAvancadoComMap(listaContas);
+
+            
+            Resultado: Um Map com o ID da Conta como chave e a lista de contatos como valores: 
+            {
+                001Hr00001nbrc5IAA=(
+                    Contact:{Id=003Hr00002Ta21TIAR, Name=Rose Gonzalez, AccountId=001Hr00001nbrc0IAA}, 
+                    Contact:{Id=003Hr00002Ta21UIAR, Name=Sean Forbes, AccountId=001Hr00001nbrc0IAA}
+                ),
+                001Hr00001nbrc1IAA=(
+                    Contact:{Id=003Hr00002Ta21VIAR, Name=Jack Rogers, AccountId=001Hr00001nbrc1IAA}
+                ), 
+                001Hr00001nbrc2IAA=(
+                    Contact:{Id=003Hr00002Ta21WIAR, Name=Pat Stumuller, AccountId=001Hr00001nbrc2IAA}
+                )
+            }
+
+            Observação:
+            - É possível construir Map de vários tipos, inclusive compostos pelo ID de um objeto + Lista de outro objeto.
+        */
     } 
 
 }
