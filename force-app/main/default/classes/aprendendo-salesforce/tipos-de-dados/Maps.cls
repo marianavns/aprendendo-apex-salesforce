@@ -13,7 +13,7 @@ public with sharing class Maps {
         /*
 
         Comando para executar no Developer Console:
-        MapsBOMVNS.construirMapDoZeroBasico();
+        Maps.construirMapDoZeroBasico();
 
         Resultado:
         {Bernardo=Desenvolvedor, Laís=Desenvolvedora}
@@ -33,7 +33,7 @@ public with sharing class Maps {
         /*
 
         Comando para executar no Developer Console:
-        MapsBOMVNS.construirMapDoZeroIntermediario('Fernando','Advogado','Arnaldo','Jornalista');
+        Maps.construirMapDoZeroIntermediario('Fernando','Advogado','Arnaldo','Jornalista');
 
         Resultado:
         {Fernando=Advogado, Arnaldo=Jornalista}
@@ -51,7 +51,7 @@ public with sharing class Maps {
 
         /*
             Comando para executar no Developer Console:
-            MapsBOMVNS.construirMapAPartirDeUmaListaDeRegistrosSalesforce();
+            Maps.construirMapAPartirDeUmaListaDeRegistrosSalesforce();
 
             Resultado: O id do registro + O registro em si. 
             {
@@ -92,7 +92,7 @@ public with sharing class Maps {
         /*
             Comando para executar no Developer Console:
             List<Account> listaContas = [SELECT Id FROM Account];
-            MapsBOMVNS.filtrarRegistrosNoSalesforceSemSelectNoLoopSemMap(listaContas);
+            Maps.filtrarRegistrosNoSalesforceSemSelectNoLoopIniciante(listaContas);
 
             Resultado: Uma lista de Contact para cada conta, exemplo: 
             (
@@ -132,7 +132,7 @@ public with sharing class Maps {
         /*
             Comando para executar no Developer Console:
             List<Account> listaContas = [SELECT Id FROM Account];
-            MapsBOMVNS.filtrarRegistrosNoSalesforceSemSelectNoLoopAvancadoComMap(listaContas);
+            Maps.filtrarRegistrosNoSalesforceSemSelectNoLoopAvancadoComMap(listaContas);
 
             
             Resultado: Um Map com o ID da Conta como chave e a lista de contatos como valores: 
@@ -160,7 +160,7 @@ public with sharing class Maps {
         https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_methods_system_map.htm
 
 
-        
+
         #### FORMAS DE CRIAR UM MAP - CONSTRUTORES DE MAP
         Map<Integer,String> mapCriadoVazio = new Map<Integer,String>();
         Map<Integer,String> mapCriadoPopulado = new Map<Integer,String>{1 => 'primeiro', 2 => 'segundo'};
