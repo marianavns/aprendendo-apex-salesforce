@@ -106,4 +106,28 @@ public with sharing class Maps {
         */
     }
 
+
+    public static void filtrarRegistrosNoSalesforceSemSelectNoLoopAvancadoComMap (List<Account> listaDeContas) {
+        
+        List<Contact> listContatosDaLista = new List<Contact>([SELECT Id, Name, AccountId, Account.Name FROM Contact WHERE AccountId IN :listaDeContas]);
+        Map<Id,List<Contact>> mapContaEContatos = new Map<Id,List<Contact>>();
+
+        for (Contact contato : listContatosDaLista){
+            Id idDaConta = contato.AccountId;
+            if (mapContaEContatos.containsKey(idDaConta)){
+                mapContaEContatos.get(idDaConta).add(contato);
+            }
+            if (!mapContaEContatos.containsKey(idDaConta)){
+                List<Contact> contatosDestaConta = new List<Contact>();
+                contatosDestaConta.add(contato);
+                mapContaEContatos.put(idDaConta,contatosDestaConta);
+            }
+        }
+        
+        for (Id keyAccountId : mapContaEContatos.keySet()){
+            List<Contact> contatosDeCadaConta = mapContaEContatos.get(keyAccountId);
+            System.debug('A conta ' + contatosDeCadaConta[0].Account.Name + ' tem ' + contatosDeCadaConta.size() + ' contatos, que são: ' + contatosDeCadaConta);
+        }
+    } 
+
 }
