@@ -176,4 +176,44 @@ public with sharing class Maps {
             (.toString)         String mapEmString = mapEstadosCapitais.toString();
 
 
+
+        #### TODOS OS MÉTODOS DO MAP
+            # SEM RETORNO OU RETORNO NÃO MUITO ÚTIL
+                mapQueFicaráVazio.clear();
+                mapEstadosCapitais.put('Acre', 'Rio Branco');   
+                |___ (tem retorno) Se tentamos incluir uma chave que já existe, o valor é substituído. O retorno é o valor que estava cadastrado na chave.
+                mapEstadosCapitais.remove('Acre');   
+                |___ (tem retorno) Remove a chave e o valor do map. Retorna o valor que foi apagado.
+                mapQueReceberáListaRegistrosSF.putAll(listaDeRegistros);
+                |___ Inclui uma lista inteira de registros de uma vez em um map que já existe.
+                mapQueReceberáMap.putAll(mapQueJaExiste);
+                |___ Inclui um map de uma vez em um map que já existe.
+            # RETORNO BOOLEAN
+                Boolean possuiAmazonasComoChave = mapEstadosCapitais.containsKey('Amazonas');
+                Boolean mapAIgualMapB = mapA.equals(mapB);
+                Boolean mapEstaVazio = mapEstadosCapitais.isEmpty();
+            # RETORNO INTEGER
+                Integer hashCode = mapPessoaProfissao.hashCode();
+                |___ Resultado: 4607793566
+                Integer tamanhoDoMap = mapEstadosCapitais.size();
+                |___ Resultado: quantos conjuntos chaveXvalor temos no map.
+            # RETORNO STRING
+                String mapEmString = mapEstadosCapitais.toString();
+            # RETORNO LIST
+                List<String> listaDasCapitais = mapEstadosCapitais.values(); 
+                |___ Retorna uma lista com todos os valores que estão nas chaves.
+            # RETORNO MAP
+                Map<String,String> cópiaDoMap = mapOriginal.clone();
+                Map<String,Account> mapCopiadoProfundamente = mapOriginal.deepClone();
+            # RETORNO VARIÁVEL
+                String capitalAcre = mapEstadosCapitais.get('Acre');            
+                |___ Resultado: 'Rio Branco'. Tipo de retorno depende do tipo do map
+            # RETORNO SCHEMA.SOBJECTTYPE
+                Schema.SObjectType tipoDeSObject = mapStringAccount.getSObjectType();   
+                |___ Resultado: 'Account'
+            # RETORNO SET
+            Set setDosEstados = mapEstadosCapitais.keySet();
+            |___Resultado: {Acre, Amazonas, Pará, Pernambuco}
+
+    */
 }
