@@ -11,18 +11,17 @@ public with sharing class Maps {
         System.debug('[construirMapDoZeroBasico] O map de pessoa x profissão é: ' + mapPessoaProfissao);
 
         /*
+            Comando para executar no Developer Console:
+            Maps.construirMapDoZeroBasico();
 
-        Comando para executar no Developer Console:
-        Maps.construirMapDoZeroBasico();
+            Resultado:
+            {Bernardo=Desenvolvedor, Laís=Desenvolvedora}
 
-        Resultado:
-        {Bernardo=Desenvolvedor, Laís=Desenvolvedora}
-
-        Observação:
-        Se for inserido mais de um valor para a mesma chave com o método .put, vai prevalecer o último valor inserido. Foi o que aconteceu na chave "Bernardo".
+            Observação:
+            Se for inserido mais de um valor para a mesma chave com o método .put, vai prevalecer o último valor inserido. Foi o que aconteceu na chave "Bernardo".
         */
     }
-    
+
 
     public static void construirMapDoZeroIntermediario (String chaveA, String valorA, String chaveB, String valorB) {
         Map<String,String> mapPessoaProfissao = new Map<String,String>();
@@ -31,18 +30,17 @@ public with sharing class Maps {
         System.debug('[construirMapDoZeroIntermediario] O map de pessoa x profissão é: ' + mapPessoaProfissao);
 
         /*
+            Comando para executar no Developer Console:
+            Maps.construirMapDoZeroIntermediario('Fernando','Advogado','Arnaldo','Jornalista');
 
-        Comando para executar no Developer Console:
-        Maps.construirMapDoZeroIntermediario('Fernando','Advogado','Arnaldo','Jornalista');
+            Resultado:
+            {Fernando=Advogado, Arnaldo=Jornalista}
 
-        Resultado:
-        {Fernando=Advogado, Arnaldo=Jornalista}
-
-        Observação:
-        A diferença deste método para o construirMapDoZeroBasico é a inserção de parâmetros na função.
+            Observação:
+            A diferença deste método para o construirMapDoZeroBasico é a inserção de parâmetros na função.
         */
     }
-    
+
 
     public static void construirMapAPartirDeUmaListaDeRegistrosSalesforce () {
         List<Account> contasSemTelefone = [SELECT Id, Name, Phone FROM Account WHERE Phone = null];
@@ -152,70 +150,70 @@ public with sharing class Maps {
             Observação:
             - É possível construir Map de vários tipos, inclusive compostos pelo ID de um objeto + Lista de outro objeto.
         */
-    } 
+    }
 
     /*
 
         #### DOCUMENTAÇÃO DA CLASSE MAPS: 
-        https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_methods_system_map.htm
+            https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_methods_system_map.htm
 
 
 
         #### FORMAS DE CRIAR UM MAP - CONSTRUTORES DE MAP
-        Map<Integer,String> mapCriadoVazio = new Map<Integer,String>();
-        Map<Integer,String> mapCriadoPopulado = new Map<Integer,String>{1 => 'primeiro', 2 => 'segundo'};
-        Map<String,String> mapCopiadoDeOutro = new Map<String,String>(mapExistente); 
-        Map<Id,Account> mapContaESeusContatos = new Map<Id,Account>([SELECT Id, Name FROM Account])
+            Map<Integer,String> mapCriadoVazio = new Map<Integer,String>();
+            Map<Integer,String> mapCriadoPopulado = new Map<Integer,String>{1 => 'primeiro', 2 => 'segundo'};
+            Map<String,String> mapCopiadoDeOutro = new Map<String,String>(mapExistente); 
+            Map<Id,Account> mapContaESeusContatos = new Map<Id,Account>([SELECT Id, Name FROM Account])
+
 
 
         #### MÉTODOS MAIS USADOS DO MAP
-        (.put)              mapEstadosCapitais.put('Pernambuco', 'Recife');
-        (.get)              String capitalAcre = mapEstadosCapitais.get('Acre'); --> Também poderia ser "Object capitalAcre"
-        (.values)           List<String> listaDasCapitais = mapEstadosCapitais.values(); 
-        (.containsKey)      Boolean possuiAmazonasComoChave = mapEstadosCapitais.containsKey('Amazonas');
-        (.ketSet)           Set setDosEstados = mapEstadosCapitais.keySet();
-        (.toString)         String mapEmString = mapEstadosCapitais.toString();
-
+            (.put)              mapEstadosCapitais.put('Pernambuco', 'Recife');
+            (.get)              String capitalAcre = mapEstadosCapitais.get('Acre'); --> Também poderia ser "Object capitalAcre"
+            (.values)           List<String> listaDasCapitais = mapEstadosCapitais.values(); 
+            (.containsKey)      Boolean possuiAmazonasComoChave = mapEstadosCapitais.containsKey('Amazonas');
+            (.ketSet)           Set setDosEstados = mapEstadosCapitais.keySet();
+            (.toString)         String mapEmString = mapEstadosCapitais.toString();
 
 
 
         #### TODOS OS MÉTODOS DO MAP
-        # SEM RETORNO OU RETORNO NÃO MUITO ÚTIL
-            mapQueFicaráVazio.clear();
-            mapEstadosCapitais.put('Acre', 'Rio Branco');   
-            |___ (tem retorno) Se tentamos incluir uma chave que já existe, o valor é substituído. O retorno é o valor que estava cadastrado na chave.
-            mapEstadosCapitais.remove('Acre');   
-            |___ (tem retorno) Remove a chave e o valor do map. Retorna o valor que foi apagado.
-            mapQueReceberáListaRegistrosSF.putAll(listaDeRegistros);
-            |___ Inclui uma lista inteira de registros de uma vez em um map que já existe.
-            mapQueReceberáMap.putAll(mapQueJaExiste);
-            |___ Inclui um map de uma vez em um map que já existe.
-        # RETORNO BOOLEAN
-            Boolean possuiAmazonasComoChave = mapEstadosCapitais.containsKey('Amazonas');
-            Boolean mapAIgualMapB = mapA.equals(mapB);
-            Boolean mapEstaVazio = mapEstadosCapitais.isEmpty();
-        # RETORNO INTEGER
-            Integer hashCode = mapPessoaProfissao.hashCode();
-            |___ Resultado: 4607793566
-            Integer tamanhoDoMap = mapEstadosCapitais.size();
-            |___ Resultado: quantos conjuntos chaveXvalor temos no map.
-        # RETORNO STRING
-            String mapEmString = mapEstadosCapitais.toString();
-        # RETORNO LIST
-            List<String> listaDasCapitais = mapEstadosCapitais.values(); 
-            |___ Retorna uma lista com todos os valores que estão nas chaves.
-        # RETORNO MAP
-            Map<String,String> cópiaDoMap = mapOriginal.clone();
-            Map<String,Account> mapCopiadoProfundamente = mapOriginal.deepClone();
-        # RETORNO VARIÁVEL
-            String capitalAcre = mapEstadosCapitais.get('Acre');            
-            |___ Resultado: 'Rio Branco'. Tipo de retorno depende do tipo do map
-        # RETORNO SCHEMA.SOBJECTTYPE
-            Schema.SObjectType tipoDeSObject = mapStringAccount.getSObjectType();   
-            |___ Resultado: 'Account'
-        # RETORNO SET
-        Set setDosEstados = mapEstadosCapitais.keySet();
-        |___Resultado: {Acre, Amazonas, Pará, Pernambuco}
+            # SEM RETORNO OU RETORNO NÃO MUITO ÚTIL
+                mapQueFicaráVazio.clear();
+                mapEstadosCapitais.put('Acre', 'Rio Branco');   
+                |___ (tem retorno) Se tentamos incluir uma chave que já existe, o valor é substituído. O retorno é o valor que estava cadastrado na chave.
+                mapEstadosCapitais.remove('Acre');   
+                |___ (tem retorno) Remove a chave e o valor do map. Retorna o valor que foi apagado.
+                mapQueReceberáListaRegistrosSF.putAll(listaDeRegistros);
+                |___ Inclui uma lista inteira de registros de uma vez em um map que já existe.
+                mapQueReceberáMap.putAll(mapQueJaExiste);
+                |___ Inclui um map de uma vez em um map que já existe.
+            # RETORNO BOOLEAN
+                Boolean possuiAmazonasComoChave = mapEstadosCapitais.containsKey('Amazonas');
+                Boolean mapAIgualMapB = mapA.equals(mapB);
+                Boolean mapEstaVazio = mapEstadosCapitais.isEmpty();
+            # RETORNO INTEGER
+                Integer hashCode = mapPessoaProfissao.hashCode();
+                |___ Resultado: 4607793566
+                Integer tamanhoDoMap = mapEstadosCapitais.size();
+                |___ Resultado: quantos conjuntos chaveXvalor temos no map.
+            # RETORNO STRING
+                String mapEmString = mapEstadosCapitais.toString();
+            # RETORNO LIST
+                List<String> listaDasCapitais = mapEstadosCapitais.values(); 
+                |___ Retorna uma lista com todos os valores que estão nas chaves.
+            # RETORNO MAP
+                Map<String,String> cópiaDoMap = mapOriginal.clone();
+                Map<String,Account> mapCopiadoProfundamente = mapOriginal.deepClone();
+            # RETORNO VARIÁVEL
+                String capitalAcre = mapEstadosCapitais.get('Acre');            
+                |___ Resultado: 'Rio Branco'. Tipo de retorno depende do tipo do map
+            # RETORNO SCHEMA.SOBJECTTYPE
+                Schema.SObjectType tipoDeSObject = mapStringAccount.getSObjectType();   
+                |___ Resultado: 'Account'
+            # RETORNO SET
+            Set setDosEstados = mapEstadosCapitais.keySet();
+            |___Resultado: {Acre, Amazonas, Pará, Pernambuco}
 
     */
 }
