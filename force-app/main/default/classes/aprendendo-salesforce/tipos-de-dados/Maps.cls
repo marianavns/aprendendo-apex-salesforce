@@ -159,4 +159,12 @@ public with sharing class Maps {
 
 
 
+        #### FORMAS DE CRIAR UM MAP - CONSTRUTORES DE MAP
+            Map<Integer,String> mapCriadoVazio = new Map<Integer,String>();
+            Map<Integer,String> mapCriadoPopulado = new Map<Integer,String>{1 => 'primeiro', 2 => 'segundo'};
+            Map<String,String> mapCopiadoDeOutro = new Map<String,String>(mapExistente); 
+            Map<Id,Account> mapContaESeusContatos = new Map<Id,Account>([SELECT Id, Name FROM Account])
+
+
+
 }
