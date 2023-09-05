@@ -167,4 +167,13 @@ public with sharing class Maps {
 
 
 
+        #### MÉTODOS MAIS USADOS DO MAP
+            (.put)              mapEstadosCapitais.put('Pernambuco', 'Recife');
+            (.get)              String capitalAcre = mapEstadosCapitais.get('Acre'); --> Também poderia ser "Object capitalAcre"
+            (.values)           List<String> listaDasCapitais = mapEstadosCapitais.values(); 
+            (.containsKey)      Boolean possuiAmazonasComoChave = mapEstadosCapitais.containsKey('Amazonas');
+            (.ketSet)           Set setDosEstados = mapEstadosCapitais.keySet();
+            (.toString)         String mapEmString = mapEstadosCapitais.toString();
+
+
 }
