@@ -10,12 +10,12 @@ force-app/main/default/*
 force-app/main/default/classes/design-patterns
 force-app/main/default/classes/outras-classes-minhas
 force-app/main/default/classes/sistema
+
 force-app/main/default/classes/aprendendo-salesforce/*
-!force-app/main/default/classes/aprendendo-salesforce/tipos-de-dados/
-force-app/main/default/classes/aprendendo-salesforce/tipos-de-dados/ListasBOMVNS.cls
-force-app/main/default/classes/aprendendo-salesforce/tipos-de-dados/ListasBOMVNS.cls-meta.xml
-force-app/main/default/classes/aprendendo-salesforce/tipos-de-dados/TiposPrimitivosBOMVNS.cls
-force-app/main/default/classes/aprendendo-salesforce/tipos-de-dados/TiposPrimitivosBOMVNS.cls-meta.xml
+!force-app/main/default/classes/aprendendo-salesforce/orientacao-a-objetos/
+force-app/main/default/classes/aprendendo-salesforce/orientacao-a-objetos/modelos/
+force-app/main/default/classes/aprendendo-salesforce/orientacao-a-objetos/AplicacaoFilmes.cls
+force-app/main/default/classes/aprendendo-salesforce/orientacao-a-objetos/AplicacaoFilmes.cls-meta.xml
 
 
 
