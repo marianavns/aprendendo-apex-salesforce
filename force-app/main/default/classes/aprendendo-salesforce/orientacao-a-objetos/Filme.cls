@@ -12,4 +12,10 @@ public with sharing class Filme {
         meuFilme.nome = 'Cidade de Deus';
         System.debug('Filme: ' + meuFilme.nome + '. Lançamento: ' + meuFilme.anoDeLancamento + '. Está no plano? ' + meuFilme.incluidoNoPlano);
     }
+
+    /*
+        TEREI UM FILME EM QUALQUER CLASSE DO SISTEMA QUE EU ESCREVER ISSO:
+
+            Filme filmeblabla = new Filme();
+    */
 }
